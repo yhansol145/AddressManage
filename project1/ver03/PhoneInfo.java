@@ -1,4 +1,4 @@
-package project1.ver02;
+package project1.ver03;
 
 public class PhoneInfo {
 	
