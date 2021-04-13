@@ -1,23 +1,26 @@
 package project1.ver07;
 
+import java.util.HashSet;
+import java.util.Iterator;
 import java.util.Scanner;
 
 import project1.ver07.MenuItem.NumOfMenuItem;
 import project1.ver07.SubMenuItem.NumOfSubMenuItem;
-import project1.ver07.PhoneInfo;
-
+	
 public class PhoneBookManager {
+	
+	HashSet<PhoneInfo> phoneInfo = new HashSet<PhoneInfo>();
 	
 	MenuItem menuItem = new MenuItem();
 	SubMenuItem subMenuItem = new SubMenuItem();
 	
-	public PhoneInfo[] myPhoneInfo;
-	public int numOfPhoneInfo;
-	
-	public PhoneBookManager() {
-		myPhoneInfo = new PhoneInfo[100];
-		numOfPhoneInfo = 0;
-	}
+//	public PhoneInfo[] myPhoneInfo;
+//	public int numOfPhoneInfo;
+//	
+//	public PhoneBookManager() {
+//		myPhoneInfo = new PhoneInfo[100];
+//		numOfPhoneInfo = 0;
+//	}
 	
 	// 메뉴출력
 	public void printMenu() {
@@ -48,8 +51,10 @@ public class PhoneBookManager {
 			System.out.print("이름 : ");name = scan.nextLine();
 			System.out.print("전화번호 : ");phoneNumber = scan.nextLine();
 			
-			PhoneInfo phoneInfo = new PhoneInfo(name, phoneNumber);
-			myPhoneInfo[numOfPhoneInfo++] = phoneInfo;
+			PhoneInfo normalInfo = new PhoneInfo(name, phoneNumber);
+			phoneInfo.add(normalInfo);
+//			myPhoneInfo[numOfPhoneInfo++] = phoneInfo;
+			
 		}
 		else if(choice==2) {
 			scan.nextLine();
@@ -58,7 +63,8 @@ public class PhoneBookManager {
 			System.out.print("전공 : ");전공 = scan.nextLine();
 			System.out.print("학번 : ");학번 = scan.nextLine();
 			
-			myPhoneInfo[numOfPhoneInfo++] = new PhoneSchoolInfo(name, phoneNumber, 전공, 학번);
+			PhoneInfo schoolInfo = new PhoneSchoolInfo(name, phoneNumber, 전공, 학번);
+			phoneInfo.add(schoolInfo);
 		}
 		else if(choice==3) {
 			scan.nextLine();
@@ -66,7 +72,8 @@ public class PhoneBookManager {
 			System.out.print("전화번호 : ");phoneNumber = scan.nextLine();
 			System.out.print("회사 : ");회사명 = scan.nextLine();
 			
-			myPhoneInfo[numOfPhoneInfo++] = new PhoneCompanyInfo(name, phoneNumber, 회사명);
+			PhoneInfo companyInfo = new PhoneCompanyInfo(name, phoneNumber, 회사명);
+			phoneInfo.add(companyInfo);
 		}
 		
 		System.out.println("데이터 입력이 완료되었습니다.");
@@ -81,15 +88,17 @@ public class PhoneBookManager {
 		System.out.print("이름 : ");
 		String searchName = scan.nextLine();
 		
-		for(int i=0 ; i<numOfPhoneInfo ; i++) {
-			if(searchName.compareTo(myPhoneInfo[i].name)==0) {
-				myPhoneInfo[i].showPhoneInfo();
-				System.out.println("요청하는 정보를 찾았습니다.");
-				isFind = true;
+		Iterator<PhoneInfo> itr = phoneInfo.iterator();
+		while(itr.hasNext()) {
+			PhoneInfo inputName = itr.next();
+			if(inputName.name.equals(searchName)) {
+				System.out.println("검색결과가 있습니다.");
+				System.out.println(searchName);
+			}
+			else {
+				System.out.println("검색결과가 없습니다.");
 			}
 		}
-		if(isFind==false)
-			System.out.println("찾는정보가 없습니다.");
 	}
 	
 	// 삭제
@@ -101,14 +110,14 @@ public class PhoneBookManager {
 		
 		int deleteIndex = -1;
 		
-		for(int i=0 ; i<numOfPhoneInfo ; i++) {
-			if(deleteName.compareTo(myPhoneInfo[i].name)==0) {
-				myPhoneInfo[i] = null;
-				deleteIndex = i;
-				numOfPhoneInfo--;
-				break;
-			}
-		}
+//		for(int i=0 ; i<numOfPhoneInfo ; i++) {
+//			if(deleteName.compareTo(myPhoneInfo[i].name)==0) {
+//				myPhoneInfo[i] = null;
+//				deleteIndex = i;
+//				numOfPhoneInfo--;
+//				break;
+//			}
+//		}
 		
 		if(deleteIndex==-1) {
 			System.out.println("삭제된 데이터가 없습니다.");
@@ -123,9 +132,12 @@ public class PhoneBookManager {
 	
 	// 주소록 전체 출력
 	public void dataAllShow() {
-		for(int i=0 ; i<numOfPhoneInfo ; i++) {
-			myPhoneInfo[i].showPhoneInfo();
+		
+		Iterator itr = phoneInfo.iterator();
+		while(itr.hasNext()) {
+			Object phoneInfo = itr.next();
+			
 		}
-		System.out.println("전체정보가 출력되었습니다.");
 	}
 }
+
