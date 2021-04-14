@@ -1,7 +1,9 @@
 package project1;
 
 import java.util.Scanner;
+
 import project1.ver02.PhoneInfo;
+
 
 public class PhoneBookVer02 {
 
@@ -12,32 +14,34 @@ public class PhoneBookVer02 {
 		System.out.println("선택 : ");
 	}
 	
-	public static void inputData() {
-		Scanner scan = new Scanner(System.in);
+	public static void readData() {
+		Scanner scanner = new Scanner(System.in);
+		
 		System.out.println("이름 : ");
-		String name = scan.nextLine();
+		String name = scanner.nextLine();
 		System.out.println("전화번호 : ");
-		String phoneNumber = scan.nextLine();
+		String phoneNumber = scanner.nextLine();
 		System.out.println("생년월일 : ");
-		String birthday = scan.nextLine();
+		String birthday = scanner.nextLine();
 		
 		PhoneInfo phoneInfo = new PhoneInfo();
 		phoneInfo.showPhoneInfo(name, phoneNumber, birthday);
-		
 	}
 	
 	public static void main(String[] args) {
 		
 		int choice;
 		
+		
 		while(true) {
+			
 			showMenu();
-			Scanner scan = new Scanner(System.in);
-			choice = scan.nextInt();
+			Scanner scanner = new Scanner(System.in);
+			choice = scanner.nextInt();
 			
 			switch(choice) {
 			case 1:
-				inputData();
+				readData();
 				System.out.println();
 				continue;
 			case 2:
@@ -46,8 +50,5 @@ public class PhoneBookVer02 {
 			}
 			break;
 		}
-			
-		
 	}
-
 }
