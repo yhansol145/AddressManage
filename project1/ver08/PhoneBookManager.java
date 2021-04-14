@@ -184,36 +184,33 @@ public class PhoneBookManager extends Thread{
 		choice = scan.nextInt();
 		if(choice==1) {
 			start();
+			System.out.println("자동저장을 시작합니다.");
 		}
 		else if(choice==2) {
 			interrupt();
 		}
 	}
 	
-	
-	
-	
-	
-//	try {
-//		ObjectOutputStream out = 
-//				new ObjectOutputStream(
-//						new FileOutputStream("src/project1/ver08/AutoSaveBook.txt"));
-//		
-//		Iterator<PhoneInfo> itr = phoneInfo.iterator();
-//		while(itr.hasNext()) {
-//			PhoneInfo object = itr.next();
-//		}
-//		System.out.println("저장이 완료되었습니다.");
-//		
-//	}
-//	catch(Exception e) {
-//		System.out.println("입력정보 파일저장 시 예외발생");
-//		e.printStackTrace();
-//	}
-	
-	
-	
-	
+	public void run() {
+		
+		try {
+			ObjectOutputStream out =
+					new ObjectOutputStream(
+							new FileOutputStream("src/project1/ver08/AutoSaveBook.txt"));
+			
+			Iterator<PhoneInfo> itr = phoneInfo.iterator();
+			while(itr.hasNext()) {
+				PhoneInfo input = itr.next();
+				out.writeObject(input);
+				System.out.println("주소록이 텍스트로 자동저장 되었습니다.");
+				Thread.sleep(5000);
+			}
+		}
+		catch(Exception e) {
+			System.out.println("입력정보 파일저장 시 예외발생");
+			e.printStackTrace();
+		}
+	}
 }
 
 

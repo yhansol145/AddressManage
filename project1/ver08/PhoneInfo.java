@@ -1,8 +1,9 @@
 package project1.ver08;
 
+import java.io.Serializable;
 import java.util.Scanner;
 
-public class PhoneInfo {
+public class PhoneInfo implements Serializable{
 	
 	String name;
 	String phoneNumber;
@@ -19,8 +20,6 @@ public class PhoneInfo {
 	public void showPhoneInfo() {
 		System.out.printf("이름 : %s, 전화번호 : %s\n", name, phoneNumber);
 	}
-	
-	Scanner scan = new Scanner(System.in);
 	
 	@Override
 	public int hashCode() {
