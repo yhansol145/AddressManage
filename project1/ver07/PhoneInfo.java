@@ -1,5 +1,7 @@
 package project1.ver07;
 
+import java.util.Scanner;
+
 public class PhoneInfo {
 	
 	String name;
@@ -24,6 +26,23 @@ public class PhoneInfo {
 		System.out.println("phone : "+ phoneNumber);
 	}
 	
+	Scanner scan = new Scanner(System.in);
+	
+	@Override
+	public int hashCode() {
+		return name.hashCode();
+	}
+	
+	@Override
+	public boolean equals(Object obj) {
+		PhoneInfo phoneInfo = (PhoneInfo)obj;
+		if(phoneInfo.name.equals(this.name)) {
+			return true;
+		}
+		else {
+			return false;
+		}
+	}
 }
 
 

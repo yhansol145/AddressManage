@@ -9,4 +9,12 @@ class PhoneSchoolInfo extends PhoneInfo {
 		this.전공 = 전공;
 		this.학년 = 학년;
 	}
+	
+	@Override
+	public void showPhoneInfo() {
+		System.out.println("이름 : "+ name);
+		System.out.println("전화번호 : "+ phoneNumber);
+		System.out.println("전공 : "+ 전공);
+		System.out.println("학년 : "+ 학년);
+	}
 }
