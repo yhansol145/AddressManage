@@ -4,6 +4,7 @@ import java.util.InputMismatchException;
 import java.util.Scanner;
 import project1.ver08.PhoneBookManager;
 import project1.ver08.SubMenuItem;
+import project1.ver08.AutoSaverT;
 import project1.ver08.MenuItem;
 import project1.ver08.MenuSelectException;
 
@@ -13,6 +14,10 @@ public class PhoneBookVer08 {
 	public static void main(String[] args) {
 		
 		PhoneBookManager manager = new PhoneBookManager();
+		AutoSaverT save = new AutoSaverT(manager);
+		save.setDaemon(true);
+//		save.start();
+//		save.interrupt();
 		
 		int choice;
 		Scanner scan = new Scanner(System.in);
@@ -46,7 +51,7 @@ public class PhoneBookVer08 {
 					System.out.println();
 					continue;
 				case 5:
-					manager.myThread();
+					save.start();
 					System.out.println();
 					continue;
 				case 6:
