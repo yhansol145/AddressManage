@@ -13,8 +13,6 @@ public class PhoneBookVer08 {
 	public static void main(String[] args) {
 		
 		PhoneBookManager manager = new PhoneBookManager();
-		MenuItem menuItem = new MenuItem();
-		SubMenuItem subMenuItem = new SubMenuItem();
 		
 		int choice;
 		Scanner scan = new Scanner(System.in);
