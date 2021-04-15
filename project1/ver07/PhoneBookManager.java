@@ -47,7 +47,7 @@ public class PhoneBookManager {
 			PhoneInfo normalInfo = new PhoneInfo(name, phoneNumber);
 			boolean a = phoneInfo.add(normalInfo);
 			if(a==true) {
-				phoneInfo.add(normalInfo);
+				System.out.println("저장되었습니다.");
 			}
 			else {
 				System.out.println("중복된 데이터가 있습니다.\n"
@@ -72,7 +72,7 @@ public class PhoneBookManager {
 			PhoneInfo schoolInfo = new PhoneSchoolInfo(name, phoneNumber, 전공, 학번);
 			boolean a = phoneInfo.add(schoolInfo);
 			if(a==true) {
-				phoneInfo.add(schoolInfo);
+				System.out.println("저장되었습니다.");
 			}
 			else {
 				System.out.println("중복된 데이터가 있습니다.\n"
@@ -96,7 +96,7 @@ public class PhoneBookManager {
 			PhoneInfo companyInfo = new PhoneCompanyInfo(name, phoneNumber, 회사명);
 			boolean a = phoneInfo.add(companyInfo);
 			if(a==true) {
-				phoneInfo.add(companyInfo);
+				System.out.println("저장되었습니다.");
 			}
 			else {
 				System.out.println("중복된 데이터가 있습니다.\n"
