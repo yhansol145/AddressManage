@@ -10,25 +10,21 @@ import java.io.PrintWriter;
 import java.util.HashSet;
 import java.util.Iterator;
 import java.util.Scanner;
-import project1.ver08.MenuItem.NumOfMenuItem;
-import project1.ver08.SubMenuItem.NumOfSubMenuItem;
 	
 public class PhoneBookManager {
 	
 	HashSet<PhoneInfo> phoneInfo = new HashSet<PhoneInfo>();
-	MenuItem menuItem = new MenuItem();
-	SubMenuItem subMenuItem = new SubMenuItem();
 
 	
 	// 메뉴출력
 	public void printMenu() {
 		System.out.println("=============== 메뉴를 선택하세요 ===============");
-		System.out.println(NumOfMenuItem.ONE +".주소록 입력 "
-					+ NumOfMenuItem.TWO +".검색 "
-					+ NumOfMenuItem.THR +".삭제 "
-					+ NumOfMenuItem.FOU +".출력 "
-					+ NumOfMenuItem.FIV +".저장옵션 "
-					+ NumOfMenuItem.SIX +".종료\n"
+		System.out.println(MenuItem.ONE +".주소록 입력 "
+					+ MenuItem.TWO +".검색 "
+					+ MenuItem.THR +".삭제 "
+					+ MenuItem.FOU +".출력 "
+					+ MenuItem.FIV +".저장옵션 "
+					+ MenuItem.SIX +".종료\n"
 					+ "=============================================");
 		System.out.print("메뉴선택 : ");
 	}
@@ -42,9 +38,9 @@ public class PhoneBookManager {
 		
 		System.out.println("== 주소록을 입력함 ==");
 		System.out.println("데이터 입력을 시작합니다.");
-		System.out.println(NumOfSubMenuItem.ONE + ". 일반, "
-						+NumOfSubMenuItem.TWO + ". 동창, "
-						+NumOfSubMenuItem.THR + " .회사 ");
+		System.out.println(SubMenuItem.ONE + ". 일반, "
+						+SubMenuItem.TWO + ". 동창, "
+						+SubMenuItem.THR + " .회사 ");
 		System.out.print("선택 >> ");
 		choice = scan.nextInt();
 		if(choice==1) {

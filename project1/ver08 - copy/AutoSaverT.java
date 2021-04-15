@@ -22,8 +22,3 @@ public class AutoSaverT extends Thread {
 		}
 	}
 }
-
-
-
-//형변환해서 txt 저장
-//객체배열 > on/off 를 할수있는 것
