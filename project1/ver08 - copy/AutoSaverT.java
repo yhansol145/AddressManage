@@ -1,24 +1,23 @@
 package project1.ver08;
 
 public class AutoSaverT extends Thread {
-	
+
 	PhoneBookManager manager;
+
 	public AutoSaverT(PhoneBookManager manager) {
 		super();
 		this.manager = manager;
 	}
-	
+
 	@Override
 	public void run() {
 		try {
-			while(true) {
+			while (true) {
 				manager.autoSave();
 				System.out.println("주소록이 텍스트로 자동저장 되었습니다.");
 				sleep(5000);
 			}
-		}
-		catch(InterruptedException e) {
-			System.out.println("자동저장이 종료됩니다.");
+		} catch (InterruptedException e) {
 		}
 	}
 }
