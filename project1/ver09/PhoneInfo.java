@@ -28,6 +28,7 @@ public class PhoneInfo {
 		System.out.println("생년월일 : "+ birthday);
 	}
 	
+	//전체정보출
 	public void showPhoneInfo(String name, String phoneNumber, String birthday) {
 		System.out.println("name : "+ name);
 		System.out.println("phone : "+ phoneNumber);
